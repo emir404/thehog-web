@@ -46,8 +46,8 @@ function ProblemCard({
       className={cn(
         "flex w-full cursor-pointer flex-col gap-3 rounded-[4px] p-8 text-left transition-[background-color,box-shadow] duration-300 min-[1440px]:w-[530px]",
         active
-          ? "bg-[#fefcfb] shadow-[0px_6px_16px_0px_rgba(34,12,1,0.03)]"
-          : "bg-transparent shadow-none hover:bg-[#fefcfb]/40",
+          ? "bg-[#fafdfe] shadow-[0px_6px_16px_0px_rgba(4,27,32,0.03)]"
+          : "bg-transparent shadow-none hover:bg-[#fafdfe]/40",
       )}
     >
       <span className="font-heading text-[18px] font-medium leading-[1.2] tracking-[-0.18px] text-ink-deep">
@@ -100,7 +100,7 @@ export function ProblemsInteractive() {
   return (
     <>
       {/* Desktop bleed panel — flush to the right edge of the 1440 frame */}
-      <div className="absolute right-0 top-1/2 hidden h-[900px] w-[707px] -translate-y-1/2 overflow-clip rounded-l-[12px] bg-[#181615] min-[1440px]:block">
+      <div className="absolute right-0 top-1/2 hidden h-[900px] w-[707px] -translate-y-1/2 overflow-clip rounded-l-[12px] bg-[#141819] min-[1440px]:block">
         <PanelArt active={active} reduce={reduce} />
       </div>
 
@@ -131,7 +131,7 @@ export function ProblemsInteractive() {
 
         {/* Contained panel — stacked layout only (below 1440) */}
         <FadeIn delay={0.1} className="min-[1440px]:hidden">
-          <div className="relative mx-auto mt-12 h-[420px] w-full max-w-[560px] overflow-clip rounded-[12px] bg-[#181615] sm:h-[520px]">
+          <div className="relative mx-auto mt-12 h-[420px] w-full max-w-[560px] overflow-clip rounded-[12px] bg-[#141819] sm:h-[520px]">
             <PanelArt active={active} reduce={reduce} compact />
           </div>
         </FadeIn>

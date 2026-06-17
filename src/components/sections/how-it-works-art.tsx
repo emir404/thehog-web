@@ -53,7 +53,7 @@ export function AskForContextArt() {
             animate={reduce ? { opacity: 0.5 } : { opacity: [0.35, 0.7, 0.35] }}
             transition={reduce ? { duration: 0 } : { duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
           />
-          <span className="relative text-[12px] leading-none text-[#242221]">Research</span>
+          <span className="relative text-[12px] leading-none text-[#1e2526]">Research</span>
         </div>
         <span className="px-3.5 py-2.5 text-[12px] leading-none text-white/75">Monitor</span>
         <span className="px-3.5 py-2.5 text-[12px] leading-none text-white/75">Extract</span>

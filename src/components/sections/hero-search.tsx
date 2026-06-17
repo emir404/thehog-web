@@ -32,7 +32,7 @@ export function HeroSearch({ className }: { className?: string }) {
       <div
         role="tablist"
         aria-label="Query mode"
-        className="absolute bottom-6 left-6 flex items-center gap-2 rounded-[4px] bg-[#4d443f]/10 p-0.5 shadow-[0px_0px_48px_0px_rgba(0,0,0,0.1),inset_0px_0px_4px_0px_#ffffff]"
+        className="absolute bottom-6 left-6 flex items-center gap-2 rounded-[4px] bg-[#3f4a4d]/10 p-0.5 shadow-[0px_0px_48px_0px_rgba(0,0,0,0.1),inset_0px_0px_4px_0px_#ffffff]"
       >
         {TABS.map((tab) => (
           <button
@@ -44,7 +44,7 @@ export function HeroSearch({ className }: { className?: string }) {
             className={cn(
               "rounded-[2px] px-3.5 py-2.5 text-[12px] leading-none text-ink-deep/75 transition-colors",
               tab === active
-                ? "rounded-[2px] bg-white/95 text-[#242221] shadow-[0px_1px_12px_0px_rgba(238,96,25,0.25)]"
+                ? "rounded-[2px] bg-white/95 text-[#1e2526] shadow-[0px_1px_12px_0px_rgba(0,117,145,0.25)]"
                 : "hover:text-ink-deep",
             )}
           >

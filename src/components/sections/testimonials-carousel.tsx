@@ -64,12 +64,12 @@ function withHighlight(quote: string, highlight: string): ReactNode {
 
 function Card({ t }: { t: Testimonial }) {
   return (
-    <figure className="flex flex-col items-center gap-9 overflow-hidden rounded-[4px] bg-white p-8 shadow-[0px_0px_16px_0px_rgba(34,12,1,0.04)]">
+    <figure className="flex flex-col items-center gap-9 overflow-hidden rounded-[4px] bg-white p-8 shadow-[0px_0px_16px_0px_rgba(4,27,32,0.04)]">
       <blockquote className="text-pretty text-center text-[20px] leading-[1.5] tracking-[-0.24px] text-ink-deep sm:text-[24px]">
         {withHighlight(t.quote, t.highlight)}
       </blockquote>
       <figcaption className="flex items-center gap-5">
-        <div className="relative size-[52px] shrink-0 overflow-hidden rounded-[2px] border border-black/10 bg-white shadow-[0px_0px_12px_0px_rgba(34,12,1,0.05)]">
+        <div className="relative size-[52px] shrink-0 overflow-hidden rounded-[2px] border border-black/10 bg-white shadow-[0px_0px_12px_0px_rgba(4,27,32,0.05)]">
           <Image src={t.avatar} alt={t.name} fill sizes="52px" className="object-cover" />
         </div>
         <div className="flex flex-col text-left leading-[1.5]">

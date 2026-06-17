@@ -30,8 +30,8 @@ const BLOCKS = [
 
 export function OurStory() {
   return (
-    // #fcf6f3 is a one-off warm tint for this band — NOT a design token.
-    <section className="relative overflow-hidden bg-[#fcf6f3]">
+    // #f2f9fb is a one-off cool tint for this band — NOT a design token.
+    <section className="relative overflow-hidden bg-[#f2f9fb]">
       <div className="mx-auto w-full max-w-[1440px] px-6 py-24 sm:py-32 lg:px-[120px]">
         <FadeIn>
           <h2 className="font-heading text-[40px] font-medium leading-[1.15] tracking-[-1.2px] text-ink-deep">

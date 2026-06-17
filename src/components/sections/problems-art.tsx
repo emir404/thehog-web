@@ -122,11 +122,11 @@ type Layer = { fill: string; offset: number; z: number; signal?: boolean };
 // Top → bottom: a fresh white SIGNAL tile decaying into darker stale layers.
 const LAYERS: Layer[] = [
   { fill: "#ffffff", offset: -220, z: 25, signal: true },
-  { fill: "#5f5753", offset: -132, z: 24 },
-  { fill: "#524b47", offset: -44, z: 23 },
-  { fill: "#443f3b", offset: 44, z: 22 },
-  { fill: "#363230", offset: 132, z: 21 },
-  { fill: "#292624", offset: 220, z: 20 },
+  { fill: "#4e6064", offset: -132, z: 24 },
+  { fill: "#435256", offset: -44, z: 23 },
+  { fill: "#384447", offset: 44, z: 22 },
+  { fill: "#2d3739", offset: 132, z: 21 },
+  { fill: "#22292b", offset: 220, z: 20 },
 ];
 
 const BADGE =

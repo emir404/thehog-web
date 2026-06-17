@@ -14,7 +14,7 @@ import { ProblemsInteractive } from "@/components/sections/problems-interactive"
  */
 export function Problems() {
   return (
-    <section id="problems" className="relative overflow-hidden bg-[#fcf6f3]">
+    <section id="problems" className="relative overflow-hidden bg-[#f2f9fb]">
       <div className="mx-auto w-full max-w-[1440px]">
         <ProblemsInteractive />
       </div>

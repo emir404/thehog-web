@@ -30,7 +30,7 @@ export function Hero() {
             <h1 className="w-[min(764px,calc(100vw-48px))] text-center font-heading text-[44px] font-medium leading-none tracking-[-1.76px] text-ink-deep sm:text-[64px] sm:tracking-[-2.56px]">
               One API to search, enrich,
               <br className="hidden sm:inline" /> and{" "}
-              <mark className="-mx-1 bg-[#f78146]/20 px-1 text-inherit">monitor the web</mark>
+              <mark className="-mx-1 bg-[#0e97b8]/20 px-1 text-inherit">monitor the web</mark>
             </h1>
           </FadeIn>
         </div>

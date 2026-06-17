@@ -15,10 +15,10 @@ const logos = [
 
 export function TrustedBy() {
   return (
-    <section className="px-6 py-20 text-[#220c01]">
+    <section className="px-6 py-20 text-[#041b20]">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-8">
         <FadeIn>
-          <p className="text-center text-lg leading-[1.5] text-[#220c01]/80">
+          <p className="text-center text-lg leading-[1.5] text-[#041b20]/80">
             Trusted by industry leaders
           </p>
         </FadeIn>

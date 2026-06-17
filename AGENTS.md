@@ -30,21 +30,26 @@ Rules for building landing-page sections. Source of truth: Figma file `DN9OiLpga
   | Small / eyebrow | `text-[14px]` | medium | `-0.14px` |
   | Caption / tab | `text-[12px]` | regular | — |
 
-- Headline accent: wrap highlighted words in `<mark className="-mx-1 bg-[#f78146]/20 px-1 text-inherit">`.
+- Headline accent: wrap highlighted words in `<mark className="-mx-1 bg-[#0e97b8]/20 px-1 text-inherit">`.
 
 ## Colors
 
 Tokens are defined in `globals.css` — use the Tailwind class, not raw hex.
 
+> **Rebranded orange → teal (2026-06-15).** `brand` is now `#007591`; the warm
+> neutrals (ink, off-whites, dark sections) were re-tinted toward this cool hue.
+> `cyan` was deliberately kept as the secondary accent. The Figma source file may
+> still show the original orange palette — the code is the source of truth here.
+
 | Token | Hex | Use |
 |-------|-----|-----|
-| `bg-background` | `#fefcfb` | page background (warm off-white) |
-| `brand` | `#ee6019` | primary orange — CTAs, accents |
-| `brand-dark` | `#cb581e` | hover/active, button cap |
-| `ink` | `#3c1400` | body text on light |
-| `ink-deep` | `#220c01` | high-contrast headings / strong text |
-| `sand` | `#e8e4e2` | neutral borders/fills |
-| `taupe` | `#907f77` | muted neutral |
+| `bg-background` | `#fafdfe` | page background (cool off-white) |
+| `brand` | `#007591` | primary teal — CTAs, accents |
+| `brand-dark` | `#005c70` | hover/active, button cap |
+| `ink` | `#092a32` | body text on light (cool near-black) |
+| `ink-deep` | `#041b20` | high-contrast headings / strong text |
+| `sand` | `#e2e7e9` | neutral borders/fills |
+| `taupe` | `#728e95` | muted neutral |
 | `cyan` | `#01a2c7` | secondary accent (pixel motifs) |
 
 - Opacity ramps seen in the design: `brand/3`, `brand/5`, `brand/95`, `ink-deep/75`, `ink-deep/[0.03]`. Prefer `text-ink/80` and similar over introducing new hex values.
@@ -60,7 +65,7 @@ Tokens are defined in `globals.css` — use the Tailwind class, not raw hex.
 Use `ActionButton` (`src/components/ui/action-button.tsx`) — don't hand-roll buttons.
 
 - Signature shape: `rounded-[2px]` + `border-b-2` accent + a contrasting square icon **cap** flush to the trailing edge.
-- Variants: `primary` (orange), `tint` (orange-wash on light), `neutral` (sand), `inverse` (on dark/brand bg). Sizes: `sm` (h-38), `lg` (h-44).
+- Variants: `primary` (teal), `tint` (teal-wash on light), `neutral` (sand), `inverse` (on dark/brand bg). Sizes: `sm` (h-38), `lg` (h-44).
 - Default icon is `ArrowRightIcon` (Phosphor); pass `icon` to override.
 
 ## Conventions

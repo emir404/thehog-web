@@ -96,7 +96,7 @@ export function PricingRates() {
               className={cn(
                 "rounded-[2px] px-5 py-3.5 text-[16px] font-medium tracking-[-0.16px] text-ink-deep transition-colors",
                 perCall === value
-                  ? "bg-white shadow-[0px_1px_4px_0px_rgba(34,2,2,0.1)]"
+                  ? "bg-white shadow-[0px_1px_4px_0px_rgba(4,27,32,0.1)]"
                   : "hover:text-ink-deep/70",
               )}
             >

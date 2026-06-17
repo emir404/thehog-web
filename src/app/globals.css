@@ -14,13 +14,14 @@
   --font-heading: var(--font-suisse), var(--font-geist-sans), ui-sans-serif, system-ui,
     sans-serif;
 
-  /* The Hog brand palette (from Figma) */
-  --color-brand: #ee6019;
-  --color-brand-dark: #cb581e;
-  --color-ink: #3c1400;
-  --color-ink-deep: #220c01;
-  --color-sand: #e8e4e2;
-  --color-taupe: #907f77;
+  /* The Hog brand palette — teal primary (rebranded from Figma's orange).
+     Neutrals are tinted toward the brand hue (was warm, now cool). */
+  --color-brand: #007591;
+  --color-brand-dark: #005c70;
+  --color-ink: #092a32;
+  --color-ink-deep: #041b20;
+  --color-sand: #e2e7e9;
+  --color-taupe: #728e95;
   --color-cyan: #01a2c7;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -61,8 +62,8 @@
 }
 
 :root {
-  /* Warm off-white page background (Figma frame fill) */
-  --background: #fefcfb;
+  /* Cool off-white page background (rebranded from the warm Figma frame fill) */
+  --background: #fafdfe;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);

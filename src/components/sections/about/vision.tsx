@@ -74,7 +74,7 @@ export function OurVision() {
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 lg:mt-16">
           {VISION_CARDS.map((card, i) => (
             <FadeIn key={card.title} delay={i * 0.08}>
-              <article className="relative min-h-[170px] overflow-hidden rounded-[4px] bg-ink-deep/[0.03] p-8 shadow-[0px_0px_16px_0px_rgba(34,12,1,0.04)]">
+              <article className="relative min-h-[170px] overflow-hidden rounded-[4px] bg-ink-deep/[0.03] p-8 shadow-[0px_0px_16px_0px_rgba(4,27,32,0.04)]">
                 <h3 className="font-heading text-[18px] font-medium tracking-[-0.18px] text-ink-deep">
                   {card.title}
                 </h3>

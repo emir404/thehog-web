@@ -192,13 +192,13 @@ export function CleanOutputArt() {
     <div className="absolute inset-0">
       {/* Format tab row (bleeds right) */}
       <div className="absolute left-[32px] top-[84px] flex items-center gap-[8px] overflow-clip rounded-[4px] p-[2px] shadow-[0px_0px_48px_0px_rgba(0,0,0,0.1)]">
-        <div aria-hidden className="absolute inset-0 rounded-[4px] bg-[rgba(241,223,214,0.1)]" />
+        <div aria-hidden className="absolute inset-0 rounded-[4px] bg-[rgba(216,236,241,0.1)]" />
         <div className="relative shrink-0 rounded-[2px] bg-white/95 px-[14px] py-[10px] shadow-[0px_1px_12px_0px_rgba(0,0,0,0.1)]">
-          <p className="text-[12px] text-[#242221] whitespace-nowrap">Markdown</p>
+          <p className="text-[12px] text-[#1e2526] whitespace-nowrap">Markdown</p>
         </div>
         {OUTPUT_TABS.map((tab, i) => (
           <div key={i} className="relative shrink-0 px-[14px] py-[10px]">
-            <p className="text-[12px] text-[#242221]/80 whitespace-nowrap">{tab}</p>
+            <p className="text-[12px] text-[#1e2526]/80 whitespace-nowrap">{tab}</p>
           </div>
         ))}
         <div
@@ -209,8 +209,8 @@ export function CleanOutputArt() {
 
       {/* Markdown output card (453×266; text box 504 → clips right) */}
       <div className="absolute left-[32px] top-[129px] h-[266px] w-[453px] overflow-clip rounded-[4px] shadow-[0px_0px_48px_0px_rgba(0,0,0,0.1)]">
-        <div aria-hidden className="absolute inset-0 rounded-[4px] bg-[rgba(241,223,214,0.1)]" />
-        <div className="absolute left-[24px] top-[24px] w-[504px] text-[14px] leading-[1.5] text-[#242221]">
+        <div aria-hidden className="absolute inset-0 rounded-[4px] bg-[rgba(216,236,241,0.1)]" />
+        <div className="absolute left-[24px] top-[24px] w-[504px] text-[14px] leading-[1.5] text-[#1e2526]">
           {MARKDOWN_LINES.map((line, i) => (
             <p key={i} className="leading-[1.5]">
               {line || " "}
@@ -276,7 +276,7 @@ export function PrototypeArt() {
 
       {/* Block 2 — /search endpoint (extends past the card, clipped at the bottom) */}
       <div className="absolute left-[32px] top-[300px] flex w-[734px] flex-col gap-[20px]">
-        <div className="flex w-full items-center overflow-clip rounded-[4px] bg-[#faf7f5] px-[20px] py-[16px]">
+        <div className="flex w-full items-center overflow-clip rounded-[4px] bg-[#f3fafb] px-[20px] py-[16px]">
           <p className="font-mono text-[20px] font-medium text-ink-deep/80 whitespace-nowrap">
             api.thehog.ai/v1/search
           </p>

@@ -9,8 +9,8 @@ type BrandKey = "hog" | "lion" | "asterisk";
 
 const BRANDS: Record<BrandKey, { logo: string; barClass: string; logoClass: string }> = {
   hog: { logo: "/benchmarks/hog.svg", barClass: "bg-brand", logoClass: "w-9" },
-  lion: { logo: "/benchmarks/lion.png", barClass: "bg-[#f3e8e2]", logoClass: "w-[31px]" },
-  asterisk: { logo: "/benchmarks/asterisk.svg", barClass: "bg-[#f3e8e2]", logoClass: "w-12" },
+  lion: { logo: "/benchmarks/lion.png", barClass: "bg-[#e7f1f4]", logoClass: "w-[31px]" },
+  asterisk: { logo: "/benchmarks/asterisk.svg", barClass: "bg-[#e7f1f4]", logoClass: "w-12" },
 };
 
 type Bar = { brand: BrandKey; value: string; h: number };
@@ -118,7 +118,7 @@ export function BenchmarkChart() {
               className={cn(
                 "shrink-0 rounded-[2px] px-5 py-3.5 text-[16px] font-medium tracking-[-0.16px] text-ink-deep transition-colors",
                 tab === metric
-                  ? "bg-white shadow-[0px_1px_4px_0px_rgba(34,2,2,0.1)]"
+                  ? "bg-white shadow-[0px_1px_4px_0px_rgba(4,27,32,0.1)]"
                   : "hover:text-ink-deep/70",
               )}
             >
@@ -154,7 +154,7 @@ export function BenchmarkChart() {
             {/* Gridlines */}
             <div className="absolute inset-0 flex flex-col justify-between">
               {Array.from({ length: 9 }).map((_, i) => (
-                <div key={i} className="h-px w-full bg-[#faf0eb]" />
+                <div key={i} className="h-px w-full bg-[#ebf6f8]" />
               ))}
             </div>
 
@@ -190,7 +190,7 @@ export function BenchmarkChart() {
                   })}
 
                   {/* Floating dataset pill */}
-                  <div className="absolute bottom-6 left-1/2 flex h-11 w-40 -translate-x-1/2 items-center justify-center rounded-[2px] border-b-2 border-brand bg-[#f6e8e0]/70 text-[16px] text-ink shadow-[0px_0px_20px_0px_rgba(34,12,1,0.2)] backdrop-blur-[16px]">
+                  <div className="absolute bottom-6 left-1/2 flex h-11 w-40 -translate-x-1/2 items-center justify-center rounded-[2px] border-b-2 border-brand bg-[#e2f1f5]/70 text-[16px] text-ink shadow-[0px_0px_20px_0px_rgba(4,27,32,0.2)] backdrop-blur-[16px]">
                     {group.name}
                   </div>
                 </div>

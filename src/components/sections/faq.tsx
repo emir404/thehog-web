@@ -2,7 +2,7 @@ import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import { MinusIcon, PlusIcon } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
 
-type QA = {
+export type QA = {
   question: string;
   answer: string;
 };
@@ -89,7 +89,15 @@ const faqs: QA[] = [
   },
 ];
 
-export function FAQ() {
+export function FAQ({
+  eyebrow = "FAQ",
+  heading = "Questions before you start",
+  items = faqs,
+}: {
+  eyebrow?: string;
+  heading?: string;
+  items?: QA[];
+} = {}) {
   return (
     <section
       id="faq"
@@ -99,11 +107,11 @@ export function FAQ() {
         {/* Left column — eyebrow badge + heading */}
         <FadeIn className="lg:w-[321px] lg:shrink-0">
           <div className="flex flex-col items-start gap-6">
-            <span className="inline-flex items-center justify-center rounded-full border border-[#1b1918]/[0.08] bg-white px-3.5 py-3 text-[12px] leading-none text-[#220c01]/80 shadow-[0_6px_8px_rgba(34,12,1,0.03)]">
-              FAQ
+            <span className="inline-flex items-center justify-center rounded-full border border-[#171c1f]/[0.08] bg-white px-3.5 py-3 text-[12px] leading-none text-[#041b20]/80 shadow-[0_6px_8px_rgba(4,27,32,0.03)]">
+              {eyebrow}
             </span>
-            <h2 className="text-balance font-heading text-[40px] font-medium leading-[1.15] tracking-[-1.2px] text-[#220c01]">
-              Questions before you start
+            <h2 className="text-balance font-heading text-[40px] font-medium leading-[1.15] tracking-[-1.2px] text-[#041b20]">
+              {heading}
             </h2>
           </div>
         </FadeIn>
@@ -111,12 +119,12 @@ export function FAQ() {
         {/* Right column — accordion */}
         <FadeIn delay={0.1} className="flex-1">
           <AccordionPrimitive.Root defaultValue={[0]} className="flex w-full flex-col gap-4">
-            {faqs.map((faq, i) => (
+            {items.map((faq, i) => (
               <AccordionPrimitive.Item key={faq.question} value={i} className="flex flex-col gap-2">
                 <AccordionPrimitive.Header>
-                  <AccordionPrimitive.Trigger className="group flex min-h-16 w-full cursor-pointer items-center justify-between gap-4 rounded-[4px] bg-[#220c01]/[0.03] px-6 py-3 text-left shadow-[0_0_16px_rgba(0,0,0,0.02)] transition-colors outline-none aria-expanded:bg-[#220c01]/[0.04] focus-visible:ring-2 focus-visible:ring-[#220c01]/20">
-                    <span className="text-[18px] leading-[1.5] text-[#220c01]">{faq.question}</span>
-                    <span className="relative size-6 shrink-0 text-[#220c01]">
+                  <AccordionPrimitive.Trigger className="group flex min-h-16 w-full cursor-pointer items-center justify-between gap-4 rounded-[4px] bg-[#041b20]/[0.03] px-6 py-3 text-left shadow-[0_0_16px_rgba(0,0,0,0.02)] transition-colors outline-none aria-expanded:bg-[#041b20]/[0.04] focus-visible:ring-2 focus-visible:ring-[#041b20]/20">
+                    <span className="text-[18px] leading-[1.5] text-[#041b20]">{faq.question}</span>
+                    <span className="relative size-6 shrink-0 text-[#041b20]">
                       <PlusIcon
                         strokeWidth={1.5}
                         className="absolute inset-0 size-6 transition-[opacity,scale,filter] duration-200 ease-[cubic-bezier(0.2,0,0,1)] group-aria-expanded:scale-[0.25] group-aria-expanded:opacity-0 group-aria-expanded:blur-[4px]"
@@ -129,8 +137,8 @@ export function FAQ() {
                   </AccordionPrimitive.Trigger>
                 </AccordionPrimitive.Header>
                 <AccordionPrimitive.Panel className="h-(--accordion-panel-height) overflow-hidden transition-[height] duration-200 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0">
-                  <div className="rounded-[4px] bg-[#220c01]/[0.04] px-6 py-5 shadow-[0_0_16px_rgba(0,0,0,0.02)]">
-                    <p className="text-[16px] leading-[1.5] text-pretty text-[#220c01]/80">{faq.answer}</p>
+                  <div className="rounded-[4px] bg-[#041b20]/[0.04] px-6 py-5 shadow-[0_0_16px_rgba(0,0,0,0.02)]">
+                    <p className="text-[16px] leading-[1.5] text-pretty text-[#041b20]/80">{faq.answer}</p>
                   </div>
                 </AccordionPrimitive.Panel>
               </AccordionPrimitive.Item>

@@ -11,7 +11,7 @@ import { site } from "@/lib/site";
  */
 export function Pricing({ showEnterprise = true }: { showEnterprise?: boolean }) {
   return (
-    <section id="pricing" className="bg-[#f5fbfc]">
+    <section id="pricing" className="bg-background">
       <div className="mx-auto w-full max-w-[1440px] px-6 py-24 sm:py-32 lg:px-[120px]">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-24">
           {/* Left rail — heading, CTAs, footnote */}

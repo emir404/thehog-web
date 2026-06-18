@@ -1,0 +1,56 @@
+---
+title: "Structured web context for AI agents"
+description: "How to turn live web signals into reliable, structured intelligence for research and go-to-market workflows."
+date: "2026-06-18"
+author: "The Hog Team"
+tags: ["Engineering", "Guides"]
+---
+
+Agents got smarter, but they still can't really *see* the live web. Drop a raw HTML
+page into a context window and you've spent thousands of tokens on navigation chrome,
+cookie banners, and markup before the model reaches a single useful fact. The fix
+isn't a bigger context window — it's **better context**.
+
+## The shape of good context
+
+Good agent context has three properties. It's **fresh** (minutes old, not months),
+**structured** (typed fields, not prose to re-parse), and **scoped** (only what the
+task needs). The Hog is built around delivering exactly that.
+
+Here's how a few common signals map to where they come from:
+
+| Field      | Source                      | Freshness   |
+| ---------- | --------------------------- | ----------- |
+| Company    | Open web search             | Real-time   |
+| Headcount  | Enrichment                  | Daily       |
+| Tech stack | Page scrape + inference     | On request  |
+| News       | Monitored sources           | Streaming   |
+
+## A worked example
+
+Say your agent qualifies inbound leads. Instead of handing it a homepage, hand it a
+structured record:
+
+```ts
+const company = await hog.enrich.company({ domain: "example.com" });
+
+if (company.headcount > 50 && company.hiring) {
+  await routeToSales(company);
+}
+```
+
+The agent reasons over clean fields — `headcount`, `hiring`, `funding` — and never
+touches a line of HTML.
+
+## Keep the loop tight
+
+A few principles we've found hold up in production:
+
+1. **Fetch narrowly.** Ask for the fields the task needs, nothing more.
+2. **Cache aggressively.** Most context is reusable across runs within a session.
+3. **Monitor, don't poll.** Subscribe to changes instead of re-scraping on a timer.
+
+> The best agent context is the smallest set of fresh, structured facts that lets the
+> model make the next decision.
+
+That's the bar we hold every endpoint to.

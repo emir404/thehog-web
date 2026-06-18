@@ -6,6 +6,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      // Dev-only authoring tool — 404s in production, but keep crawlers off it.
+      disallow: "/blog/builder",
     },
     sitemap: `${site.url}/sitemap.xml`,
   };

@@ -2,6 +2,7 @@ import { Agentation } from "agentation";
 import type { Metadata } from "next";
 import { Geist, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics, AnalyticsNoScript } from "@/components/analytics";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { site } from "@/lib/site";
@@ -98,6 +99,8 @@ export default function RootLayout({
       className={`${suisse.variable} ${geistSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        {/* GTM <noscript> fallback — must be the first node inside <body>. */}
+        <AnalyticsNoScript />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -112,6 +115,7 @@ export default function RootLayout({
           <Toaster />
         </ThemeProvider>
         {process.env.NODE_ENV === "development" && <Agentation />}
+        <Analytics />
       </body>
     </html>
   );

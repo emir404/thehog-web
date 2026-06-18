@@ -35,7 +35,7 @@ export function AboutHero() {
         <FadeIn delay={0.1}>
           <VideoPlayer
             videoId="VAXbqcowvT4"
-            poster="/about/hero-media.png"
+            poster="/about/hero-media.webp"
             title="The Hog founder introducing the web intelligence API"
             className="mt-16 aspect-[16/9] rounded-[4px] bg-ink-deep/[0.03] sm:mt-20"
           />

@@ -114,7 +114,7 @@ export function FreshDataArt() {
       {/* iOS-style notification (574px → bleeds past the card) */}
       <div className="absolute left-[32px] top-[79px] flex h-[64px] w-[574px] items-center gap-[10px] rounded-[4px] bg-white px-[14px] py-[12px] drop-shadow-[0px_0px_6px_rgba(0,0,0,0.05)]">
         <div className="size-[38.333px] shrink-0 overflow-clip rounded-[4px]">
-          <img src="/features/notification-icon.png" alt="" className="size-full object-cover" />
+          <img src="/features/notification-icon.webp" alt="" className="size-full object-cover" />
         </div>
         <div className="flex min-w-0 flex-1 items-start gap-[10px]">
           <div className="flex min-w-0 flex-1 flex-col justify-center text-[15px] tracking-[-0.23px] text-black">

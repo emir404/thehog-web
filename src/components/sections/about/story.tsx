@@ -56,7 +56,7 @@ export function OurStory() {
           <FadeIn delay={0.1} className="relative order-1 lg:order-2 lg:-mr-[120px] lg:flex-1">
             <div className="relative aspect-[756/743] w-full overflow-hidden rounded-[4px] lg:aspect-auto lg:h-[743px]">
               <Image
-                src="/about/story.png"
+                src="/about/story.webp"
                 alt="The Hog team at a community event"
                 fill
                 sizes="(min-width: 1024px) 60vw, 100vw"

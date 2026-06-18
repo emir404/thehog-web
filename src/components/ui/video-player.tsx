@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 type VideoPlayerProps = {
   /** YouTube video id (e.g. "VAXbqcowvT4"). */
   videoId: string;
-  /** Poster image shown before playback and on replay (e.g. "/about/hero-media.png"). */
+  /** Poster image shown before playback and on replay (e.g. "/about/hero-media.webp"). */
   poster: string;
   /** Accessible label + poster alt text. */
   title: string;

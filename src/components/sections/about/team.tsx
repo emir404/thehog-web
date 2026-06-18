@@ -15,8 +15,8 @@ import { cn } from "@/lib/utils";
 
 type Person = { src: string; name: string; role: string };
 
-const HUDSON: Person = { src: "/about/hudson.png", name: "Hudson Liao", role: "CEO, Co-founder" };
-const PAULO: Person = { src: "/about/paulo.png", name: "Paulo Nascimento", role: "CTO, Co-founder" };
+const HUDSON: Person = { src: "/about/hudson.webp", name: "Hudson Liao", role: "CEO, Co-founder" };
+const PAULO: Person = { src: "/about/paulo.webp", name: "Paulo Nascimento", role: "CTO, Co-founder" };
 
 // Orange motif at Hudson's lower edge (Figma group 135:1088), origin frame x553 / y538.
 const TEAM_ORANGE: readonly (readonly [number, number])[] = [

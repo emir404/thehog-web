@@ -38,25 +38,33 @@ function FannedSlot({ left, top, children }: { left: number; top: number; childr
 export function SignalsArt() {
   return (
     <div className="absolute inset-0">
-      {SIGNAL_TILES.map((t) => (
-        <FannedSlot key={t.label} left={t.left} top={125}>
-          <div className="relative size-[100px] overflow-clip rounded-[4px] bg-white shadow-[0px_0px_12px_0px_rgba(0,0,0,0.05)]">
-            <img src={t.icon} alt="" className="absolute left-[26px] top-[18px] block size-[48px]" />
-            <p className="absolute bottom-[10px] left-1/2 -translate-x-1/2 font-mono text-[12px] font-medium tracking-[-0.24px] text-ink-deep">
-              {t.label}
-            </p>
+      {/* Stage pinned to the 667px desktop signals-card width — the fan is already
+          centered there (the boar card sits at the stage center). The stage is wider
+          than a phone card, so we absolutely-center it (translate -50%, which is
+          immune to the overflow that breaks grid/flex centering of oversized items)
+          and scale it down below `sm`. The fan stays centered with a symmetric edge
+          peek instead of left-anchoring and clipping the boar off the right. */}
+      <div className="absolute left-1/2 top-1/2 h-[384px] w-[667px] origin-center -translate-x-1/2 -translate-y-1/2 scale-[0.72] sm:scale-100">
+        {SIGNAL_TILES.map((t) => (
+          <FannedSlot key={t.label} left={t.left} top={125}>
+            <div className="relative size-[100px] overflow-clip rounded-[4px] bg-white shadow-[0px_0px_12px_0px_rgba(0,0,0,0.05)]">
+              <img src={t.icon} alt="" className="absolute left-[26px] top-[18px] block size-[48px]" />
+              <p className="absolute bottom-[10px] left-1/2 -translate-x-1/2 font-mono text-[12px] font-medium tracking-[-0.24px] text-ink-deep">
+                {t.label}
+              </p>
+            </div>
+          </FannedSlot>
+        ))}
+
+        {/* The highlighted orange "hog" card sits 40px higher, oversized (inset -48% → 196px). */}
+        <FannedSlot left={287} top={85}>
+          <div className="relative size-[100px]">
+            <div className="absolute inset-[-48%]">
+              <img src="/features/hog-card.svg" alt="" className="block size-full max-w-none" />
+            </div>
           </div>
         </FannedSlot>
-      ))}
-
-      {/* The highlighted orange "hog" card sits 40px higher, oversized (inset -48% → 196px). */}
-      <FannedSlot left={287} top={85}>
-        <div className="relative size-[100px]">
-          <div className="absolute inset-[-48%]">
-            <img src="/features/hog-card.svg" alt="" className="block size-full max-w-none" />
-          </div>
-        </div>
-      </FannedSlot>
+      </div>
     </div>
   );
 }

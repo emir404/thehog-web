@@ -29,6 +29,11 @@ const PROBLEMS: Problem[] = [
   },
 ];
 
+/** Mobile/tablet shrink factor for the scatter canvas — fills the small contained
+ *  panel with the composition (framed on the card cluster) rather than one stray
+ *  card, while keeping the canvas draggable. */
+const COMPACT_SCATTER_SCALE = 0.55;
+
 function ProblemCard({
   problem,
   active,
@@ -80,10 +85,19 @@ function PanelArt({
         transition={reduce ? { duration: 0 } : { duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
         {active === 0 ? (
-          <ScatterArt panY={compact} />
+          <ScatterArt panY={compact} scale={compact ? COMPACT_SCATTER_SCALE : 1} />
         ) : (
-          <div className="grid h-full w-full place-items-center">
-            <div className={cn("origin-center", compact && "scale-[0.46] sm:scale-[0.58]")}>
+          <div className="relative h-full w-full">
+            {/* Absolutely-centered (translate -50%) so the 707×900 art stays centered
+                even when scaled smaller than the panel — grid/flex centering leaves an
+                oversized item left/top-anchored and the origin-center scale then shoves
+                it into a corner. */}
+            <div
+              className={cn(
+                "absolute left-1/2 top-1/2 origin-center -translate-x-1/2 -translate-y-1/2",
+                compact && "scale-[0.46] sm:scale-[0.57]",
+              )}
+            >
               <LayersArt />
             </div>
           </div>

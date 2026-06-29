@@ -102,7 +102,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    /* Safety net for the decorative layers that bleed past their sections
+       (hero backdrop, feature cards, problems panel). `clip` — not `hidden` —
+       keeps overflow-y visible so the sticky header still works. */
+    @apply overflow-x-clip bg-background text-foreground;
   }
   html {
     @apply font-sans;

@@ -29,6 +29,16 @@ const PAD_Y = 110;
 const CANVAS_W = 1160;
 const CANVAS_H = 1200;
 
+// Centroid of the six category cards (canvas coords). The compact/mobile panel
+// opens framed on this point so it starts centered on content instead of the
+// empty top-left padding corner the desktop PAD framing lands on when shrunk.
+const CLUSTER_CX = 458;
+const CLUSTER_CY = 533;
+// Representative compact-panel size, used only to seed the initial framing — the
+// canvas is draggable, so these don't need to match every device exactly.
+const COMPACT_FRAME_W = 360;
+const COMPACT_FRAME_H = 420;
+
 type Thumb = { src: string; x: number; y: number; w: number; h: number; o: number };
 const THUMBS: Thumb[] = [
   { src: "/problems/thumb-01.png", x: 302.67, y: 134, w: 181.7, h: 121, o: 0.68 },
@@ -63,9 +73,22 @@ const CATS: Cat[] = [
  * Drag-to-pan scatter canvas. `panY` lets vertical touch-scroll pass through
  * (used in the contained mobile panel) instead of trapping it.
  */
-export function ScatterArt({ panY = false }: { panY?: boolean }) {
+export function ScatterArt({ panY = false, scale = 1 }: { panY?: boolean; scale?: number }) {
   const reduce = useReducedMotion();
   const viewportRef = useRef<HTMLDivElement>(null);
+
+  // Desktop renders 1:1 and frames the Figma composition via PAD. Below 1440 the
+  // panel is much smaller, so `scale` shrinks the whole canvas (composition +
+  // every card/thumb together, via the wrapper transform — `motion` drag stays
+  // accurate because the draggable's box is the genuinely-scaled CANVAS*scale)
+  // and the canvas opens framed on the card cluster instead of an empty corner.
+  const initial =
+    scale === 1
+      ? { x: -PAD_X, y: -PAD_Y }
+      : {
+          x: COMPACT_FRAME_W / 2 - CLUSTER_CX * scale,
+          y: COMPACT_FRAME_H / 2 - CLUSTER_CY * scale,
+        };
 
   return (
     <div
@@ -77,35 +100,40 @@ export function ScatterArt({ panY = false }: { panY?: boolean }) {
     >
       <motion.div
         className="absolute left-0 top-0"
-        style={{ width: CANVAS_W, height: CANVAS_H }}
+        style={{ width: CANVAS_W * scale, height: CANVAS_H * scale }}
         drag
         dragConstraints={viewportRef}
         dragElastic={0.12}
         dragTransition={reduce ? { power: 0 } : { power: 0.25, timeConstant: 220 }}
-        initial={{ x: -PAD_X, y: -PAD_Y }}
+        initial={initial}
       >
-        {THUMBS.map((t, i) => (
-          <img
-            key={`t${i}`}
-            src={t.src}
-            alt=""
-            draggable={false}
-            className="pointer-events-none absolute select-none rounded-[6px]"
-            style={{ left: t.x, top: t.y, width: t.w, height: t.h, opacity: t.o }}
-          />
-        ))}
-        {CATS.map((c) => (
-          <div
-            key={c.label}
-            className="absolute flex select-none flex-col items-center justify-center gap-2.5 rounded-[5.76px] bg-white shadow-[0px_0px_17.28px_0px_rgba(0,0,0,0.05)]"
-            style={{ left: c.x, top: c.y, width: c.size, height: c.size, opacity: c.o }}
-          >
-            <img src={c.icon} alt="" draggable={false} className="size-[60px]" />
-            <span className="font-mono text-[17px] font-medium leading-none tracking-[-0.35px] text-ink-deep">
-              {c.label}
-            </span>
-          </div>
-        ))}
+        <div
+          className="absolute left-0 top-0 origin-top-left"
+          style={{ width: CANVAS_W, height: CANVAS_H, transform: `scale(${scale})` }}
+        >
+          {THUMBS.map((t, i) => (
+            <img
+              key={`t${i}`}
+              src={t.src}
+              alt=""
+              draggable={false}
+              className="pointer-events-none absolute select-none rounded-[6px]"
+              style={{ left: t.x, top: t.y, width: t.w, height: t.h, opacity: t.o }}
+            />
+          ))}
+          {CATS.map((c) => (
+            <div
+              key={c.label}
+              className="absolute flex select-none flex-col items-center justify-center gap-2.5 rounded-[5.76px] bg-white shadow-[0px_0px_17.28px_0px_rgba(0,0,0,0.05)]"
+              style={{ left: c.x, top: c.y, width: c.size, height: c.size, opacity: c.o }}
+            >
+              <img src={c.icon} alt="" draggable={false} className="size-[60px]" />
+              <span className="font-mono text-[17px] font-medium leading-none tracking-[-0.35px] text-ink-deep">
+                {c.label}
+              </span>
+            </div>
+          ))}
+        </div>
       </motion.div>
     </div>
   );

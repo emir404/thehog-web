@@ -12,6 +12,7 @@ import { Pricing } from "@/components/sections/pricing";
 import { Problems } from "@/components/sections/problems";
 import { Testimonials } from "@/components/sections/testimonials";
 import { TrustedBy } from "@/components/sections/trusted-by";
+import { WhatYouCanBuild } from "@/components/sections/what-you-can-build";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -27,6 +28,7 @@ export default function Home() {
         <Hero />
         <TrustedBy />
         <Features />
+        <WhatYouCanBuild />
         <Benchmarks />
         <HowItWorks />
         <Problems />
